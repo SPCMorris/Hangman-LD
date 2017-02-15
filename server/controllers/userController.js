@@ -18,7 +18,7 @@ const DELETE = (req, res) => {
   console.log('In DELETE in user', req.url)
 };
 
-userRoutes['/user/:type?:game_name'] = {
+userRoutes['/:user_name/:type?:game_name'] = {
   GET, 
   POST,
   PUT,
