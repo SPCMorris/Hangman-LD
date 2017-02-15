@@ -4,6 +4,7 @@ const userRoutes = {};
 
 const GET = (req, res) => {
   console.log('In GET in user!', req.url);
+  res.end()
 };
 
 const POST = (req, res) => {
@@ -18,7 +19,7 @@ const DELETE = (req, res) => {
   console.log('In DELETE in user', req.url)
 };
 
-userRoutes['/:user_name/:type?:game_name'] = {
+userRoutes['/new_game/:type?:game_name'] = {
   GET, 
   POST,
   PUT,
