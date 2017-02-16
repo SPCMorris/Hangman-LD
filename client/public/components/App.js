@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 
-import GameBuilder from './GameBuilder';
 import NavBar from './NavBar';
-import GameBoard from './GameBoard';
+import GameBuilder from './GameBuilder';
 
 class App extends Component {
   constructor(props) {
@@ -14,9 +13,8 @@ class App extends Component {
     return (
       <Container> 
         <NavBar />
-        <br></br>
         <GameBuilder />
-        <GameBoard /> 
+          { this.props.children }
       </Container>
     );
   }

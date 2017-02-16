@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Container, Reveal, Grid, Image, List, Button, Header } from 'semantic-ui-react';
+import { Container, Reveal, Grid, Image, Segment, Button, Header } from 'semantic-ui-react';
 
 const abc = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 const abcListBuilder = () => (
   abc.map( (char, index) => {
     return (
-        <Grid.Column key={index}>
-            <Button basic>{ char }</Button>
-        </Grid.Column>
+        <Segment key={index}>
+            { char }
+        </Segment>
     );
   })
 );
@@ -26,9 +26,11 @@ const abcListBuilder = () => (
           Possible Character Guesses!
         </Header>
 
-        <Grid container stackable columns='equal'>
+        <Segment.Group horizontal>
           { abcList }
-        </Grid>
+        </Segment.Group>
+
+
        </Container>
      );
    }
