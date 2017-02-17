@@ -35,7 +35,7 @@ app.use(express.static('./client'));
 app.use(express.static(__dirname + '/../client/public'));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve('client', 'index.html'));
+  res.sendFile(path.resolve('client', 'public'));
 });
 
 // Server

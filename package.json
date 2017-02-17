@@ -4,9 +4,6 @@
   "description": "A React app using Node/Express and MySQL/knex on the backend. A simple game of hangman.",
   "main": "index.js",
   "scripts": {
-    "webpack-watch": "./node_modules/webpack/bin/webpack.js -w",
-    "webpack": "./node_modules/webpack/bin/webpack.js",
-    "build": "webpack --env.dev --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

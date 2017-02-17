@@ -1,0 +1,94 @@
+body { 
+  background-color: #A2B59C;
+  color: white;
+  text-align: center;
+  font-size: 2em;
+}
+
+a {
+  color: #F2B335;
+}
+
+img.drawing {
+  margin-top: 5%;
+}
+
+div#difficulty {
+  display: inline-block;
+}
+
+li { 
+  list-style: none;
+  float: left;
+  margin: 0 .5em .5em 0;
+  border: solid;
+  padding: .3em;
+  width: .8em;
+  height:1em;
+  border-radius: .25em;
+  color: white;
+  cursor: pointer;
+  background-color: #F2B335;
+}
+
+li:hover {
+  background-color: transparent;
+}
+
+#container{
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: .2%;
+  overflow: none;
+  text-align: center;
+}
+  
+#gameBoard {
+  display: none;
+  overflow: none;
+}
+
+.btn {
+  border-radius: .5em;
+  background-color: #F2B335;
+  color: white;
+  width: 7em;
+  height: 2em;
+  font-size: .75em;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: transparent;
+}
+
+.btn.restart {
+  background-color: #8BB22D;
+  border: 3px solid;
+  border-color: white;
+}
+
+.game-on {
+  display: none;
+}
+
+.choice-container {
+  margin-left: 10%;
+  margin-right: 5%; 
+  width: 15em;
+  float: right;
+}
+
+.choice-container {
+  margin-left: 5%;
+  right: 5%;
+  float: left; 
+}
+
+.guesses {
+  font-size: .8em;
+  margin-top: .2em;
+}
+
+
+

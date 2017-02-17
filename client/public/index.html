@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Hangman</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div id="container">
+    <h1>Hangman</h1>
+    <p class="intro">
+      Welcome to Hangman! If you do not know what the game hangman is check it out here at <a href='https://en.wikipedia.org/wiki/Hangman_%28game%29'>Wikipedia</a>. Using the options below build out the type of game you want to play!
+    </p>
+    <p class="game-on">
+      Use the below alphabet characters to make your guesses.
+    </p>
+
+    <div id="difficulty">
+      <button class="btn difficulty easy" value="easy">Easy</button>
+      <button class="btn difficulty medium" value="medium">Medium</button>
+      <button class="btn difficulty hard" value="hard">Hard</button>
+      <button class="btn difficulty insane" value="insane">INSANE</button>
+    </div>
+
+    <div id="gameBoard">
+        <div class="choice-container">
+          <ul class="choices"></ul>
+          <button class="btn restart">New Game</button> 
+        </div>
+        <div class="guess-container">
+          <div class="dashes">_ _ _ _ _ _ _ _ _ _ _ _</div>
+          <div class="guesses">You have 9 lives left</div>
+          <div></div>
+          <img class="drawing" src="./media/Drawing10.png" width="800" height="281">
+        </div>
+    </div>
+
+  </div>
+  <!-- jQuery CND -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- Modules -->
+  <script type="text/javascript" src="./modules/choices.controller.js"></script>
+  <script type="text/javascript" src="./modules/guesses.controller.js"></script>
+  <script type="text/javascript" src="./modules/difficulty.controller.js"></script>
+  <script type="text/javascript" src="./modules/hangman.controller.js"></script>
+  <!-- Initiate Game -->
+  <script type="text/javascript">
+    $(document).ready( () => {
+      const $btn_difficulty = $('div#difficulty'),
+            $btn_restart = $('button.restart'),
+            $game_board = $('div#gameBoard'),
+            $game_onP = $('p.game-on'),
+            $introP = $('p.intro');
+      // Initiates game
+      $btn_difficulty.click( (e) => {
+        e.preventDefault();
+        // Basic CSS changes for display
+        $btn_difficulty.css('display', 'none');
+        $game_board.css('display', 'block');
+        $introP.css('display', 'none');
+        $game_onP.css('display', 'block');
+        // Sends difficulty level to the controler to build the query for the api
+        DifficultyCtrl.setDifficulty(e.target.innerHTML);
+      })
+      // Grab word from REST api
+      // Process word
+        // Build dashes
+        // Generate guesses
+      // DifficultyCtrl
+      // ChoiceCtrl
+      ChoicesCtrl.buildChoiceList();
+      // GuessCtrl
+      // Restart
+      $btn_restart.click( () => {
+        location.reload();
+      });
+    });
+  </script>
+</body>
+</html>
