@@ -8,10 +8,15 @@ const GuessesCtrl = (function() {
   const guessCounter = () => {
     totalGuessLeft--;
     $('span#guesses-left').text(totalGuessLeft);
+    if(totalGuessLeft === 0) { 
+
+    }
   };
 
   const checkIfWordIsSolved = () => {
-    
+    if(foundLetters === NumOfDashes) {
+      console.log("WINNING")
+    }
   };
 
   const addLetterToDashes = (letter, index) => {
@@ -47,6 +52,7 @@ const GuessesCtrl = (function() {
 
   const getWord = (word) => { 
     ChosenWord = word;
+    console.log(ChosenWord)
     displayDashes(word.length); 
   };
 
