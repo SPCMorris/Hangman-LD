@@ -7,7 +7,7 @@ const GuessesCtrl = (function() {
 
   const guessCounter = () => {
     totalGuessLeft--;
-    $('span#guesses-left').replaceWith(totalGuessLeft);
+    $('span#guesses-left').text(totalGuessLeft);
   };
 
   const checkIfWordIsSolved = () => {
@@ -15,8 +15,8 @@ const GuessesCtrl = (function() {
   };
 
   const addLetterToDashes = (letter, index) => {
-    let currentDashElement = $span_dashes[index]);
     foundLetters++;
+    $span_dashes[index].replaceWith(letter)
     checkIfWordIsSolved();
   };
 
