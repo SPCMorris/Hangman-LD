@@ -22,7 +22,6 @@ const DifficultyCtrl = (function() {
         }, 1000)
       },
       success: (resp) => {
-        console.log(resp);
         sendToGuessesCtrl(resp);
       },
       error: (error) => {
@@ -48,7 +47,6 @@ const DifficultyCtrl = (function() {
       default:
         difficultyLevel = random(8, 10);
     }
-    console.log(difficultyLevel)
    $wordApiCall(difficultyLevel)
   };
 

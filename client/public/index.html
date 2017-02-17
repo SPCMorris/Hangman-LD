@@ -29,8 +29,8 @@
           <button class="btn restart">New Game</button> 
         </div>
         <div class="guess-container">
-          <div class="dashes">_ _ _ _ _ _ _ _ _ _ _ _</div>
-          <div class="guesses">You have 9 lives left</div>
+          <div class="dashes"><span id="dashes"></span></div>
+          <div class="guesses">You have <span id="guesses-left">6</span> guesses left</div>
           <div></div>
           <img class="drawing" src="./media/Drawing10.png" width="800" height="281">
         </div>
@@ -63,8 +63,15 @@
         // Sends difficulty level to the controler to build the query for the api
         DifficultyCtrl.setDifficulty(e.target.innerHTML);
       })
-      // ChoiceCtrl builds out choice list
+      // ChoiceCtrl builds out choice list and handles choice clicks
+      // Builds List
       ChoicesCtrl.buildChoiceList();
+      // Click handler for list choices
+      const $choice_list = $('ul.choices');
+      $choice_list.click( (e) => {
+
+        ChoicesCtrl.getChoice(e.target.innerHTML);
+      });
       // Restart the game
       $btn_restart.click( () => {
         location.reload();

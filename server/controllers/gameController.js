@@ -16,8 +16,9 @@ const GET = (req, res) => {
   console.log('In GET in game!', req.url);
 
   let url = Helpers.parsedUrl(req.url),
-      level = url.query,
-      getUrl = 'http://linkedin-reach.hagbpyjegb.us-west-2.elasticbeanstalk.com/words?difficulty=' + level[level.length-1];
+      levelQuery = url.query,
+      level = levelQuery.replace(/\D/g, '');
+      getUrl = 'http://linkedin-reach.hagbpyjegb.us-west-2.elasticbeanstalk.com/words?difficulty=' + level;
 
   const wordApiCall = (endpoint) => ( requestP(endpoint) );
   wordApiCall(getUrl)

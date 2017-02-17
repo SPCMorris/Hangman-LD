@@ -10,8 +10,11 @@ const ChoicesCtrl = (function() {
     }
   };
 
+  const getChoice = (letter) => { GuessesCtrl.getChoiceFromChoicesCtrl(letter) };
+
   return {
-    buildChoiceList
+    buildChoiceList,
+    getChoice
   };
 
 })();
