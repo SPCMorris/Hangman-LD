@@ -1,21 +1,33 @@
 const DifficultyCtrl = (function() {
   const random = (min, max) => ( Math.floor(Math.random() * (max - min + 1)) + min );
 
-  const chooseWord = (wordsResp) => {
-    console.log("IN CHOOSE WORD",wordsResp);
+  const sendToGuessesCtrl = (wordsResp) => {
+    GuessesCtrl.getWord(wordsResp);
   };
 
-  const $getWords = (level) => {
+  const $wordApiCall = (level) => {
     $.ajax({
       url: 'http://localhost:9000/game',
       type: 'GET',
-      data: { level }, 
+      data: { level },
+      async: true,
+      beforeSend: () => {
+        $('div#container').hide();
+        $('div#loading').show();
+      },
+      complete: () => {
+        setTimeout( ()=> {
+          $('div#loading').hide();
+          $('div#container').show();
+        }, 1000)
+      },
       success: (resp) => {
-       // console.log(resp);
-        //chooseWord(resp);
+        console.log(resp);
+        sendToGuessesCtrl(resp);
       },
       error: (error) => {
-        console.log(error)
+        console.log(error);
+        alert("Sorry something went wrong and I couldn't find you a word. Please try again");
       }
     })
   };
@@ -25,8 +37,7 @@ const DifficultyCtrl = (function() {
 
     switch(rate) {
       case 'Easy':
-      console.log(rate)
-        difficultyLevel = random(0, 3);
+        difficultyLevel = random(1, 3);
         break;
       case 'Medium':
         difficultyLevel = random(3, 5);
@@ -35,14 +46,13 @@ const DifficultyCtrl = (function() {
         difficultyLevel = random(5, 8);
         break;
       default:
-      console.log(typeof rate)
         difficultyLevel = random(8, 10);
     }
-   $getWords(difficultyLevel)
+    console.log(difficultyLevel)
+   $wordApiCall(difficultyLevel)
   };
 
   return {
-    $getWords,
     setDifficulty
   };
 

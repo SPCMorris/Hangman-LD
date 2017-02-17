@@ -6,20 +6,6 @@ const userRoutes = {};
 
 const GET = (req, res) => {
   console.log('In GET in user!', req.url);
-
-  let url = Helpers.parsedUrl(req.url),
-      level = url.query,
-      getUrl = 'http://linkedin-reach.hagbpyjegb.us-west-2.elasticbeanstalk.com/words?difficulty=' + level;
-
-  const wordApiCall = (endpoint) => ( requestP(endpoint) );
-  wordApiCall(getUrl)
-    .then( (data) => {
-      console.log(data);
-      res.send(data)
-    })
-    .catch( (err) => {
-      res.end(err)
-    })
 };
 
 const POST = (req, res) => {
@@ -34,7 +20,7 @@ const DELETE = (req, res) => {
   console.log('In DELETE in user', req.url)
 };
 
-userRoutes['/game'] = {
+userRoutes['/user'] = {
   GET, 
   POST,
   PUT,

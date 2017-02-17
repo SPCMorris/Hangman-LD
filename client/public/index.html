@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+  <div id="loading"></div>
   <div id="container">
     <h1>Hangman</h1>
     <p class="intro">
@@ -62,15 +63,9 @@
         // Sends difficulty level to the controler to build the query for the api
         DifficultyCtrl.setDifficulty(e.target.innerHTML);
       })
-      // Grab word from REST api
-      // Process word
-        // Build dashes
-        // Generate guesses
-      // DifficultyCtrl
-      // ChoiceCtrl
+      // ChoiceCtrl builds out choice list
       ChoicesCtrl.buildChoiceList();
-      // GuessCtrl
-      // Restart
+      // Restart the game
       $btn_restart.click( () => {
         location.reload();
       });
