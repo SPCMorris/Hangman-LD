@@ -25,18 +25,30 @@ const GuessesCtrl = (function() {
       // Disables choice list
       disableChoiceList();
       // Appends winning message. 
-      $('span#heading').replaceWith(' WINNING AT')
+      $('span#heading').replaceWith(' WINNING AT');
+
+      const startInterval = (intervlNum) => {
+        let interval = setInterval(drawingInterval, 700);
+
+        function drawingInterval() {
+          let newSrc = './media/Winning/g' + intervlNum + '.png';
+          if(intervlNum === 6) { clearInterval(interval) } 
+          else { $('img.drawing').attr('src', newSrc) }
+          intervlNum++;
+        };
+
+      };
+      startInterval(1);
     }
   };
 
   const addLetterToDashes = (letter, indexArr) => {
     for(let i = 0; i < indexArr.length; i++) {
-      $span_dashes[indexArr[i]].replaceWith(letter)
+      $span_dashes[indexArr[i]].replaceWith(letter);
       foundLetters++;
     }
     checkIfWordIsSolved();
   };
-
 
   const checkIfChoiceIsInWord = (choice, event) => {
     let found = [],

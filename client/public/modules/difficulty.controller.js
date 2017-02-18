@@ -31,8 +31,9 @@ const DifficultyCtrl = (function() {
       },
       complete: () => {
         setTimeout( ()=> {
-          clearInterval(interval);
           $('img.loading').remove();
+          // Move walking man to top left corner for a cool logo!
+          $('span#walking-man').append('<img class="loading" src="./media/Loading/walking1.png" width="38" height="57" alt="Supposed to be a walking man here... Not good.">')
           $('div#loading').hide();
           $('div#container').show();
         }, 1500)

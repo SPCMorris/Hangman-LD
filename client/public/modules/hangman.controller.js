@@ -18,6 +18,7 @@ const HangmanCtrl = (function() {
       $('img.drawing').attr('src', newSrc);
       if(hangingPicIndex === 4) { 
         // Displays word
+        $('span#heading').replaceWith(' LOSING AT');
         $('div.dashes').replaceWith('<span>' + word + '</span>');
         // Runs lost animation
         startInterval(hangingPicIndex);

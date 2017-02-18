@@ -48,6 +48,10 @@ li:hover {
   overflow: none;
 }
 
+#walking-man {
+  float: left;
+}
+
 #loading  {
   top: 42%;
   left: 48%;
