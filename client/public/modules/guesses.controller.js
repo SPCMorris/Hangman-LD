@@ -5,22 +5,27 @@ const GuessesCtrl = (function() {
       foundLetters = 0;
       totalGuessLeft = 6;
 
+  const disableChoiceList = () => {
+    $('ul.choices').children().each((index, li)=> {
+      $(li).removeClass('correct-guess wrong-guess').addClass('disabled game-over')
+    });
+  };
+
   const guessCounter = () => {
     totalGuessLeft--;
     $('span#guesses-left').text(totalGuessLeft);
+    // Check if there are any more guesses left
     if(totalGuessLeft === 0) { 
-
+      disableChoiceList();
     }
   };
 
   const checkIfWordIsSolved = () => {
     if(foundLetters === NumOfDashes) {
       // Disables choice list
-      $('ul.choices').children().each((index, li)=> {
-        $(li).addClass('disabled winning')
-      });
+      disableChoiceList();
       // Appends winning message. 
-      $('span#heading').text(' winning at')
+      $('span#heading').replaceWith(' WINNING AT')
     }
   };
 
@@ -49,9 +54,9 @@ const GuessesCtrl = (function() {
       $(event.target).addClass('disabled correct-guess');
 
     } else {
-      guessCounter();
       $(event.target).addClass('disabled wrong-guess');
-      HangmanCtrl.stringEmUp();
+      guessCounter();
+      HangmanCtrl.stringEmUp(ChosenWord['full-word']);
     }
   };
 
@@ -70,6 +75,7 @@ const GuessesCtrl = (function() {
     for(let i = 0; i < word.length; i++) {
       ChosenWord[i] = word[i];
     }
+    ChosenWord["full-word"] = word;
     console.log(ChosenWord)
     displayDashes(word.length); 
   };

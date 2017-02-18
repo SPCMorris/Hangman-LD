@@ -11,15 +11,17 @@ const HangmanCtrl = (function() {
     };
   };
 
-  const stringEmUp = () => {
+  const stringEmUp = (word) => {
     hangingPicIndex--;
     let newSrc = './media/losing/Drawing' + hangingPicIndex + '.png';
-
     if(hangingPicIndex >= 4) {
       $('img.drawing').attr('src', newSrc);
       if(hangingPicIndex === 4) { 
+        // Displays word
+        $('div.dashes').replaceWith('<span>' + word + '</span>');
+        // Runs lost animation
         startInterval(hangingPicIndex);
-         
+
       }
     } 
   };
