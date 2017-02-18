@@ -19,7 +19,7 @@ const DifficultyCtrl = (function() {
         $('div#loading').show();
         // Start the Walking Man
         startInterval = (intervlNum) => {
-          interval = setInterval(drawingInterval, 100);
+          interval = setInterval(drawingInterval, 200);
           function drawingInterval() {
             let newSrc = './media/Loading/walking' + numOfWalkingMen + '.png';
             if(numOfWalkingMen === 5) { numOfWalkingMen = 1 } 
@@ -27,7 +27,7 @@ const DifficultyCtrl = (function() {
             numOfWalkingMen++;
           };
         };
-        startInterval();
+        startInterval(1);
       },
       complete: () => {
         setTimeout( ()=> {
