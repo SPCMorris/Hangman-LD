@@ -46,7 +46,7 @@ const GuessesCtrl = (function() {
     } else {
       guessCounter();
       $(event.target).addClass('disabled wrong-guess');
-      // HangmanCtrl.stringEmUp();
+      HangmanCtrl.stringEmUp();
     }
   };
 
