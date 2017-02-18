@@ -1,5 +1,8 @@
 const DifficultyCtrl = (function() {
   const random = (min, max) => ( Math.floor(Math.random() * (max - min + 1)) + min );
+  let interval,
+      startInterval,
+      numOfWalkingMen = 2;
 
   const sendToGuessesCtrl = (wordsResp) => {
     GuessesCtrl.getWord(wordsResp);
@@ -14,12 +17,25 @@ const DifficultyCtrl = (function() {
       beforeSend: () => {
         $('div#container').hide();
         $('div#loading').show();
+        // Start the Walking Man
+        startInterval = (intervlNum) => {
+          interval = setInterval(drawingInterval, 100);
+          function drawingInterval() {
+            let newSrc = './media/Loading/walking' + numOfWalkingMen + '.png';
+            if(numOfWalkingMen === 5) { numOfWalkingMen = 1 } 
+            else { $('img.loading').attr('src', newSrc) }
+            numOfWalkingMen++;
+          };
+        };
+        startInterval();
       },
       complete: () => {
         setTimeout( ()=> {
+          clearInterval(interval);
+          $('img.loading').remove();
           $('div#loading').hide();
           $('div#container').show();
-        }, 1000)
+        }, 1500)
       },
       success: (resp) => {
         sendToGuessesCtrl(resp);

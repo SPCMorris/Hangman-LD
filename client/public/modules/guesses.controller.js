@@ -15,14 +15,19 @@ const GuessesCtrl = (function() {
 
   const checkIfWordIsSolved = () => {
     if(foundLetters === NumOfDashes) {
-      console.log("WINNING")
+      // Disables choice list
+      $('ul.choices').children().each((index, li)=> {
+        $(li).addClass('disabled winning')
+      });
+      // Appends winning message. 
+      $('span#heading').text(' winning at')
     }
   };
 
   const addLetterToDashes = (letter, indexArr) => {
-    foundLetters++;
     for(let i = 0; i < indexArr.length; i++) {
       $span_dashes[indexArr[i]].replaceWith(letter)
+      foundLetters++;
     }
     checkIfWordIsSolved();
   };

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Basic Hangman</title>
+  <title>This Is Hangman!</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div id="loading"></div>
+  <div id="loading"><img class="loading" src="./media/Loading/walking1.png" alt="Supposed to be a wlaking man here... Not good."></div>
   <div id="container">
-    <h1>Hangman</h1>
+    <h1>This is<span id="heading"></span> Hangman</h1>
     <p class="intro">
       Welcome to Hangman! If you do not know what the game hangman is check it out here at <a href='https://en.wikipedia.org/wiki/Hangman_%28game%29'>Wikipedia</a>. Using the options below build out the type of game you want to play!
     </p>
@@ -32,7 +32,7 @@
           <div class="dashes"><span id="dashes"></span></div>
           <div class="guesses">You have <span id="guesses-left">6</span> guesses left</div>
           <div></div>
-          <img class="drawing" src="./media/Drawing10.png" width="800" height="281">
+          <img class="drawing" src="./media/losing/Drawing10.png" width="800" height="281">
         </div>
     </div>
 

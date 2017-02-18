@@ -48,6 +48,12 @@ li:hover {
   overflow: none;
 }
 
+#loading  {
+  top: 42%;
+  left: 48%;
+  position: absolute;
+}
+
 .btn {
   border-radius: .5em;
   background-color: #F2B335;
@@ -106,6 +112,10 @@ li:hover {
 
 .wrong-guess {
   background-color: red;
+}
+
+.winning {
+  background-color: transparent;
 }
 
 
