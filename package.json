@@ -2,10 +2,9 @@
   "name": "hangman",
   "version": "1.0.0",
   "description": "A React app using Node/Express and MySQL/knex on the backend. A simple game of hangman.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "express-server": "nodemon ./server/server.js",
-    "start": "npm run express-server",
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,7 +23,6 @@
   },
   "homepage": "https://github.com/SPCMorris/Hangman-LD#readme",
   "devDependencies": {
-    "nodemon": "^1.11.0"
   },
   "dependencies": {
     "body-parser": "^1.16.0",
@@ -37,6 +35,7 @@
     "knex": "^0.12.6",
     "morgan": "^1.7.0",
     "mysql": "^2.12.0",
+    "nodemon": "^1.11.0",
     "path": "^0.12.7",
     "request-promise": "^4.1.1"
   }
