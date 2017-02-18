@@ -1,6 +1,6 @@
 const GuessesCtrl = (function() {
-  let ChosenWord,
-      NumOfDashes,
+  const ChosenWord = {};
+  let NumOfDashes,
       $span_dashes,
       foundLetters = 0;
       totalGuessLeft = 6;
@@ -19,20 +19,26 @@ const GuessesCtrl = (function() {
     }
   };
 
-  const addLetterToDashes = (letter, index) => {
+  const addLetterToDashes = (letter, indexArr) => {
     foundLetters++;
-    $span_dashes[index].replaceWith(letter)
+    for(let i = 0; i < indexArr.length; i++) {
+      $span_dashes[indexArr[i]].replaceWith(letter)
+    }
     checkIfWordIsSolved();
   };
 
 
   const checkIfChoiceIsInWord = (choice) => {
-    let reg = new RegExp(choice, "gi");
-   
-    if(ChosenWord.match(reg)) {
-      let wordArr = ChosenWord.split(''),
-          charIndex = wordArr.indexOf(choice);
-      addLetterToDashes(choice, charIndex);
+    let found = [],
+      flag = false;
+
+    for(let index in ChosenWord) {
+      if(choice === ChosenWord[index]) { found.push(Number(index)) }
+      if(!flag) {  flag = true }
+    }
+
+    if(flag) {
+      addLetterToDashes(choice, found);
     } else {
       guessCounter();
       // HangmanCtrl.stringEmUp();
@@ -51,7 +57,9 @@ const GuessesCtrl = (function() {
   };
 
   const getWord = (word) => { 
-    ChosenWord = word;
+    for(let i = 0; i < word.length; i++) {
+      ChosenWord[i] = word[i];
+    }
     console.log(ChosenWord)
     displayDashes(word.length); 
   };
