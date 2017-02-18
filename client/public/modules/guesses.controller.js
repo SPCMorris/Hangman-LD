@@ -28,19 +28,24 @@ const GuessesCtrl = (function() {
   };
 
 
-  const checkIfChoiceIsInWord = (choice) => {
+  const checkIfChoiceIsInWord = (choice, event) => {
     let found = [],
       flag = false;
 
     for(let index in ChosenWord) {
-      if(choice === ChosenWord[index]) { found.push(Number(index)) }
-      if(!flag) {  flag = true }
+      if(choice === ChosenWord[index]) { 
+        found.push(Number(index)) 
+        if(!flag) {  flag = true }
+      }
     }
 
     if(flag) {
       addLetterToDashes(choice, found);
+      $(event.target).addClass('disabled correct-guess');
+
     } else {
       guessCounter();
+      $(event.target).addClass('disabled wrong-guess');
       // HangmanCtrl.stringEmUp();
     }
   };
@@ -64,7 +69,7 @@ const GuessesCtrl = (function() {
     displayDashes(word.length); 
   };
 
-  const getChoiceFromChoicesCtrl = (letter) => { checkIfChoiceIsInWord(letter) };
+  const getChoiceFromChoicesCtrl = (letter, event) => { checkIfChoiceIsInWord(letter, event) };
 
   return {
     getWord,

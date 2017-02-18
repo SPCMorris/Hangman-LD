@@ -69,7 +69,9 @@
       // Click handler for list choices
       const $choice_list = $('ul.choices');
       $choice_list.click( (e) => {
-        ChoicesCtrl.getChoice(e.target.innerHTML);
+        let currentTarget = $(e.target).hasClass('disabled');
+        console.log(currentTarget)
+        if(!currentTarget) { ChoicesCtrl.getChoice(e.target.innerHTML, e) }
       });
       // Restart the game
       $btn_restart.click( () => {

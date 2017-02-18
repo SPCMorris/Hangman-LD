@@ -95,5 +95,18 @@ li:hover {
   font-size: .8em;
 }
 
+.diasbled {
+  pointer-events: none;
+    cursor: none;
+}
+
+.correct-guess {
+  background-color: #8BB22D;
+}
+
+.wrong-guess {
+  background-color: red;
+}
+
 
 
