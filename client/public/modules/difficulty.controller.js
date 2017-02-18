@@ -10,7 +10,7 @@ const DifficultyCtrl = (function() {
 
   const $wordApiCall = (level) => {
     $.ajax({
-      url: 'http://localhost:9000/game',
+      url: 'https://this-is-hangman.herokuapp.com/game',
       type: 'GET',
       data: { level },
       async: true,
@@ -44,6 +44,7 @@ const DifficultyCtrl = (function() {
       error: (error) => {
         console.log(error);
         alert("Sorry something went wrong and I couldn't find you a word. Please try again");
+        location.reload();
       }
     })
   };
