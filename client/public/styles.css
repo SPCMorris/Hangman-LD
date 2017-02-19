@@ -40,8 +40,8 @@ li.diasbled {
 }
 
 #container{
-  margin-right: 5%;
-  margin-left: 5%;
+  margin-right: 1%;
+  margin-left: 1%;
   margin-top: .2%;
   overflow: none;
   text-align: center;
@@ -91,16 +91,23 @@ li.diasbled {
   display: none;
 }
 
-.choice-container {
-  margin-right: 5%; 
-  width: 15em;
-  float: right;
-  position: relative;
-}
+@media (min-width: 320px) and (max-width: 767px) {
+  .drawing{
+      margin: 0;
+      width: 100%;
+      text-align: center;
+  }
+  .choice-container {
+    width: 14em;
+    float: right;
+    position: relative;
+  }
 
-.guesses-container {
-  float: left; 
 }
+  .guesses-container {
+    float: left; 
+  }
+
 
 .guesses {
   font-size: .6em;
