@@ -10,33 +10,33 @@
   </head>
   <body>
     <div id="container" class="container">
-      <h1><span id="walking-man"></span><span>THIS IS<span id="heading">...</span> HANGMAN</span></h1>
+      <h2><span id="walking-man"></span><span>THIS IS<span id="heading">...</span> HANGMAN</span></h2>
       <p class="intro">
         Welcome to Hangman! If you do not know what the game hangman is check it out here at <a href='https://en.wikipedia.org/wiki/Hangman_%28game%29'>Wikipedia</a>. Using the options below build out the type of game you want to play!
       </p>
       <p class="game-on">
-        Use the below character choices to make your guesses. Choose wisely, you only have 6 tries. 
+        Use the below character choices to make your guesses. Choose wisely, you only have 6 tries. Use the 'Guess' button to try guessing the whole word. Use the 'Hint' button to get a hint. You will only get two. Good luck!
       </p>
       <!-- Difficulty button group -->
       <div id="difficulty">
-        <button class="btn difficulty easy" value="easy">Easy</button>
-        <button class="btn difficulty medium" value="medium">Medium</button>
-        <button class="btn difficulty hard" value="hard">Hard</button>
-        <button class="btn difficulty insane" value="insane">INSANE</button>
+        <button id="btn" class="difficulty easy" value="easy">Easy</button>
+        <button id="btn" class="difficulty medium" value="medium">Medium</button>
+        <button id="btn" class="difficulty hard" value="hard">Hard</button>
+        <button id="btn" class="difficulty insane" value="insane">INSANE</button>
       </div>
       <!-- Game board including choice list, restart button, guesses element and hangman diagram -->
       <div id="gameBoard" class="row">
         <div class="guess-container row">
           <div class="dashes"><span id="dashes"></span></div>
-          <div class="guesses">You have <span id="guesses-left">6</span> guesses left</div>
+          <div class="guesses">You have <span id="guesses-left">6</span><span class="one-guess-hook"> guesses</span> left</div>
           <div>
             <img class="drawing row" src="./media/Losing/Drawing10.png" width="800" height="281">
           </div>
           <div class="choice-container row">
             <ul class="choices"></ul>
-            <button class="btn restart">Restart</button> 
-            <button class="btn restart">Guess</button>
-            <button class="btn restart">Hint?</button> 
+            <button id="btn" class="restart">Restart</button> 
+            <button id="btn" class="guess">Guess</button>
+            <button id="btn" class="hint">Hint?</button> 
           </div>
         </div>
         <!-- Closing div for gameBoard -->
@@ -52,6 +52,7 @@
     <script type="text/javascript" src="./modules/guesses.controller.js"></script>
     <script type="text/javascript" src="./modules/difficulty.controller.js"></script>
     <script type="text/javascript" src="./modules/hangman.controller.js"></script>
+    <script type="text/javascript" src="./modules/button.controller.js"></script>
     <!-- Initiate Game -->
     <script type="text/javascript" src="./modules/init.controller.js"></script>
   </body>

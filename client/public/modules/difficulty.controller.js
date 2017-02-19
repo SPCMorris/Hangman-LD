@@ -5,7 +5,10 @@ const DifficultyCtrl = (function() {
       startInterval,
       numOfWalkingMen = 2;
 
-  const sendToGuessesCtrl = (wordsResp) => { GuessesCtrl.getWord(wordsResp) };
+  const sendToGuessesCtrl = (wordsResp) => { 
+    GuessesCtrl.getWord(wordsResp);
+    ButtonCtrl.getWordFromDifficultyCtrl(wordsResp); 
+  };
   // Makes the ajax call to the server which makes the call to the REST api provided
   // Also, handles loading screen animations
   const $wordApiCall = (level) => {
@@ -40,7 +43,7 @@ const DifficultyCtrl = (function() {
       },
       success: (resp) => { sendToGuessesCtrl(resp) },
       error: (error) => {
-        alert("Sorry something went wrong and I couldn't find you a word. Please try again");
+        prompt("Sorry something went wrong and I couldn't find you a word. Please try again");
         location.reload();
       }
     })

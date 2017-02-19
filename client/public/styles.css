@@ -8,23 +8,23 @@ a {
   color: #F2B335;
 }
 
-button.btn {
+button#btn {
   border-radius: .5em;
-  background-color: #F2B335;
   color: white;
   width: 7em;
   height: 2em;
   font-size: .75em;
   cursor: pointer;
+  border: .1em solid;
+  border-color: white;
 }
 
-button.btn:hover {
+button#btn:hover {
   background-color: transparent;
 }
 
-
 div#loading-page {
-  top: 44.7%;
+  top: 40.7%;
   left: 47.65%;
   text-align: center;
   position: absolute;
@@ -38,10 +38,10 @@ div.loading  {
 ul li.choice-list  { 
   list-style: none;
   float: left;
-  margin: 0 .7em .5em 0;
+  margin: 0 .6em .5em 0;
   border: solid;
   padding: .3em;
-  width: 1.3em;
+  width: 1.4em;
   height: 1.8em;
   border-radius: .25em;
   color: white;
@@ -57,13 +57,13 @@ ul li.diasbled {
 }
 
 li#correct-guess {
-  border-color: #8BB22D;
-  background-color: transparent;
+  border-color: white;
+  background-color: #9ccc65;
 }
 
 li#wrong-guess {
-  border-color: red;
-  background-color: transparent;
+  border-color: white;
+  background-color: #ef5350;
 }
 
 li#game-over {
@@ -73,6 +73,14 @@ li#game-over {
 #container.container{
   text-align: center;
   width: 85%
+}
+
+#btn.difficulty {
+  background-color: #F2B335;
+}
+
+#btn.restart, .hint, .guess {
+  background-color: #009688;
 }
 
 #gameBoard {
@@ -102,26 +110,6 @@ li#game-over {
   float: left;
   position: relative;
   text-align: center;
-}
-
-.btn {
-  border-radius: .5em;
-  background-color: #F2B335;
-  color: white;
-  width: 7em;
-  height: 2em;
-  font-size: .75em;
-  cursor: pointer;
-}
-
-.btn.restart {
-  background-color: #8BB22D;
-  border: .1em solid;
-  border-color: white;
-}
-
-.btn:hover {
-  background-color: transparent;
 }
 
 .guesses {

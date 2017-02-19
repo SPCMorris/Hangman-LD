@@ -8,7 +8,10 @@ const GuessesCtrl = (function() {
   // If you win or lose the game this disables the list
   const disableChoiceList = () => {
     $('ul.choices').children().each((index, li)=> {
-      $(li).removeAttr('id', 'correct-guess').removeAttr('id', 'wrong-guess').attr('id', 'game-over').addClass('disabled');
+      $(li).removeAttr('id', 'correct-guess')
+        .removeAttr('id', 'wrong-guess')
+        .attr('id', 'game-over')
+        .addClass('disabled');
     });
   };
   // Keeps track of the guess count to display 
@@ -18,7 +21,7 @@ const GuessesCtrl = (function() {
     if(totalGuessLeft === 0) { 
       $('div.guesses').text('Oops, you got strung up!');
       disableChoiceList();
-    }
+    } else if(totalGuessLeft === 1) { $('span.one-guess-hook').text(' guess') }
     // If there are, display the rest of the guesses
     $('span#guesses-left').text(totalGuessLeft);
   };
@@ -29,13 +32,14 @@ const GuessesCtrl = (function() {
       disableChoiceList();
       // Appends winning message. 
       $('span#heading').replaceWith(' WINNING AT');
+      $('div.guesses').text('Winner, Winner, no Hangman for you!');
       // Winning animation
       const startInterval = (intervlNum) => {
         let interval = setInterval(drawingInterval, 700);
 
         function drawingInterval() {
           let newSrc = './media/Winning/hm' + intervlNum + '.png';
-          if(intervlNum === 6) { clearInterval(interval) } 
+          if(intervlNum === 21) { clearInterval(interval) } 
           else { $('img.drawing').attr('src', newSrc) }
           intervlNum++;
         };
@@ -79,7 +83,7 @@ const GuessesCtrl = (function() {
     let dashCount = 0;
 
     while(dashCount < len) { 
-      $('span#dashes').append('<span class="dash-guesses">_</span>');
+      $('span#dashes').append('<span class="dash-guesses">__</span>');
       dashCount++;
     }
     NumOfDashes = dashCount;

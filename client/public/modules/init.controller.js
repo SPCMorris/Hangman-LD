@@ -1,7 +1,6 @@
 const InitCtrl = (function() {
   $(document).ready( () => {
-    const $btn_difficulty = $('div#difficulty'),
-          $btn_restart = $('button.restart'),
+    const $btn_difficulty = $('button.difficulty'),
           $game_board = $('div#gameBoard'),
           $game_onP = $('p.game-on'),
           $introP = $('p.intro');
@@ -9,7 +8,7 @@ const InitCtrl = (function() {
     $btn_difficulty.click( (e) => {
       e.preventDefault();
       // Basic CSS changes for display
-      $btn_difficulty.css('display', 'none');
+      $('div#difficulty').css('display', 'none');
       $game_board.css('display', 'block');
       $introP.css('display', 'none');
       $game_onP.css('display', 'block');
@@ -24,10 +23,6 @@ const InitCtrl = (function() {
     $choice_list.click( (e) => {
       let currentTarget = $(e.target).hasClass('disabled');
       if(!currentTarget) { ChoicesCtrl.getChoice(e.target.innerHTML, e) }
-    });
-    // Restart the game
-    $btn_restart.click( () => {
-      location.reload();
     });
   });
 })();
