@@ -8,11 +8,17 @@ const GuessesCtrl = (function() {
   // If you win or lose the game this disables the list
   const disableChoiceList = () => {
     $('ul.choices').children().each((index, li)=> {
-      $(li).removeAttr('id', 'correct-guess')
-        .removeAttr('id', 'wrong-guess')
-        .attr('id', 'game-over')
-        .addClass('disabled');
+      console.log(li);
+      let char = $(li);
+
+      char.removeAttr('id', 'correct-guess')
+      char.removeAttr('id', 'wrong-guess');
+      char.attr('id', 'game-over');
+      char.addClass('disabled');
     });
+    // Hide buttons
+    $('button.hint').hide();
+    $('button.guess').hide();
   };
   // Keeps track of the guess count to display 
   const guessCounter = () => {
@@ -46,6 +52,7 @@ const GuessesCtrl = (function() {
 
       };
       startInterval(1);
+      return true;
     }
   };
 
@@ -54,12 +61,12 @@ const GuessesCtrl = (function() {
       $span_dashes[indexArr[i]].replaceWith(letter);
       foundLetters++;
     }
-    checkIfWordIsSolved();
+    return checkIfWordIsSolved();
   };
 
   const checkIfChoiceIsInWord = (choice, event) => {
     let found = [],
-      flag = false;
+        flag = false;
 
     for(let index in ChosenWord) {
       if(choice === ChosenWord[index]) { 
@@ -69,9 +76,8 @@ const GuessesCtrl = (function() {
     }
 
     if(flag) {
-      addLetterToDashes(choice, found);
-      $(event.target).removeClass('hover-control').attr('id','correct-guess').addClass('disabled');
-
+      let endOfGame = addLetterToDashes(choice, found);
+      if(!endOfGame) { $(event.target).removeClass('hover-control').attr('id','correct-guess').addClass('disabled') }
     } else {
       $(event.target).removeClass('hover-control').attr('id','wrong-guess').addClass('disabled');
       guessCounter();
