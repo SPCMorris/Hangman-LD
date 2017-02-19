@@ -15,8 +15,8 @@ const DifficultyCtrl = (function() {
       data: { level },
       async: true,
       beforeSend: () => {
-        $('div#container').hide();
-        $('div#loading').show();
+        $('div.container').hide();
+        $('div.loading').attr('id','loading-page')
         // Start the Walking Man
         startInterval = (intervlNum) => {
           interval = setInterval(drawingInterval, 200);
@@ -35,7 +35,7 @@ const DifficultyCtrl = (function() {
           // Move walking man to top left corner for a cool logo!
           $('span#walking-man').append('<img class="loading" src="./media/Loading/walking1.png" width="38" height="57" alt="Supposed to be a walking man here... Not good.">')
           $('div#loading').hide();
-          $('div#container').show();
+          $('div.container').show();
         }, 1500)
       },
       success: (resp) => { sendToGuessesCtrl(resp) },

@@ -5,12 +5,13 @@ const GuessesCtrl = (function() {
       foundLetters = 0;
       totalGuessLeft = 6;
 
+  // If you win or lose the game this disables the list
   const disableChoiceList = () => {
     $('ul.choices').children().each((index, li)=> {
-      $(li).removeClass('correct-guess wrong-guess').addClass('game-over disabled');
+      $(li).removeAttr('id', 'correct-guess').removeAttr('id', 'wrong-guess').attr('id', 'game-over').addClass('disabled');
     });
   };
-
+  // Keeps track of the guess count to display 
   const guessCounter = () => {
     totalGuessLeft--;
     // Check if there are any more guesses left
@@ -21,14 +22,14 @@ const GuessesCtrl = (function() {
     // If there are, display the rest of the guesses
     $('span#guesses-left').text(totalGuessLeft);
   };
-
+  // This function checks if you won the game and if so trigges the winning animations
   const checkIfWordIsSolved = () => {
     if(foundLetters === NumOfDashes) {
       // Disables choice list
       disableChoiceList();
       // Appends winning message. 
       $('span#heading').replaceWith(' WINNING AT');
-
+      // Winning animation
       const startInterval = (intervlNum) => {
         let interval = setInterval(drawingInterval, 700);
 
@@ -65,10 +66,10 @@ const GuessesCtrl = (function() {
 
     if(flag) {
       addLetterToDashes(choice, found);
-      $(event.target).removeClass('hover-control').addClass('correct-guess disabled');
+      $(event.target).removeClass('hover-control').attr('id','correct-guess').addClass('disabled');
 
     } else {
-      $(event.target).removeClass('hover-control').addClass('wrong-guess disabled');
+      $(event.target).removeClass('hover-control').attr('id','wrong-guess').addClass('disabled');
       guessCounter();
       HangmanCtrl.stringEmUp(ChosenWord['full-word']);
     }

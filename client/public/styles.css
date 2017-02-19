@@ -1,70 +1,107 @@
 body { 
   background-color: #A2B59C;
   color: white;
-  text-align: center;
-  font-size: 2em;
+  font-size: 1.7em;
 }
 
 a {
   color: #F2B335;
 }
 
-img.drawing {
-  margin-top: 5%;
-  float: left;
-  position: relative;
+button.btn {
+  border-radius: .5em;
+  background-color: #F2B335;
+  color: white;
+  width: 7em;
+  height: 2em;
+  font-size: .75em;
+  cursor: pointer;
 }
 
-div#difficulty {
-  display: inline-block;
+button.btn:hover {
+  background-color: transparent;
 }
 
-li { 
+
+div#loading-page {
+  top: 44.7%;
+  left: 47.65%;
+  text-align: center;
+  position: absolute;
+}
+
+div.loading  {
+  margin-top: 3%;
+  text-align: center;
+}
+
+ul li.choice-list  { 
   list-style: none;
   float: left;
-  margin: 0 .5em .5em 0;
+  margin: 0 .7em .5em 0;
   border: solid;
   padding: .3em;
-  width: .8em;
-  height:1em;
+  width: 1.3em;
+  height: 1.8em;
   border-radius: .25em;
   color: white;
   cursor: pointer;
   background-color: #F2B335;
+  text-align: center;
 }
 
-li.diasbled {
+ul li.diasbled {
   background-color: transparent;
   pointer-events: none;
   cursor: none;
 }
 
-#container{
-  margin-right: 1%;
-  margin-left: 1%;
-  margin-top: .2%;
-  overflow: none;
-  text-align: center;
+li#correct-guess {
+  border-color: #8BB22D;
+  background-color: transparent;
 }
-  
+
+li#wrong-guess {
+  border-color: red;
+  background-color: transparent;
+}
+
+li#game-over {
+  background-color: transparent;
+}
+
+#container.container{
+  text-align: center;
+  width: 85%
+}
+
 #gameBoard {
   display: none;
-  overflow: none;
 }
 
 #walking-man {
   float: left;
 }
 
-#loading  {
-  top: 42%;
-  left: 48%;
-  position: absolute;
+.game-on {
+  display: none;
 }
-
 
 .hover-control:hover {
   background-color: transparent;
+}
+
+.dash-guesses {
+  padding: .5em;
+  font-size: .8em;
+}
+
+.choice-container {
+  left: 14%
+  width: 85%;
+  float: left;
+  position: relative;
+  text-align: center;
 }
 
 .btn {
@@ -77,61 +114,17 @@ li.diasbled {
   cursor: pointer;
 }
 
-.btn:hover {
-  background-color: transparent;
-}
-
 .btn.restart {
   background-color: #8BB22D;
   border: .1em solid;
   border-color: white;
 }
 
-.game-on {
-  display: none;
+.btn:hover {
+  background-color: transparent;
 }
-
-@media (min-width: 320px) and (max-width: 767px) {
-  .drawing{
-      margin: 0;
-      width: 100%;
-      text-align: center;
-  }
-  .choice-container {
-    width: 14em;
-    float: right;
-    position: relative;
-  }
-
-}
-  .guesses-container {
-    float: left; 
-  }
-
 
 .guesses {
   font-size: .6em;
   margin-top: .2em;
 }
-
-.dash-guesses {
-  padding: .5em;
-  font-size: .8em;
-}
-
-.correct-guess {
-  border-color: #8BB22D;
-  background-color: transparent;
-}
-
-.wrong-guess {
-  border-color: red;
-  background-color: transparent;
-}
-
-.game-over {
-  background-color: transparent;
-}
-
-
-
