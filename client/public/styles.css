@@ -11,6 +11,8 @@ a {
 
 img.drawing {
   margin-top: 5%;
+  float: left;
+  position: relative;
 }
 
 div#difficulty {
@@ -31,6 +33,11 @@ li {
   background-color: #F2B335;
 }
 
+li.diasbled {
+  background-color: transparent;
+  pointer-events: none;
+  cursor: none;
+}
 
 #container{
   margin-right: 5%;
@@ -55,11 +62,6 @@ li {
   position: absolute;
 }
 
-#diasbled {
-  background-color: transparent;
-  pointer-events: none;
-  cursor: none;
-}
 
 .hover-control:hover {
   background-color: transparent;
@@ -81,7 +83,7 @@ li {
 
 .btn.restart {
   background-color: #8BB22D;
-  border: 3px solid;
+  border: .1em solid;
   border-color: white;
 }
 
@@ -90,15 +92,13 @@ li {
 }
 
 .choice-container {
-  margin-left: 10%;
   margin-right: 5%; 
   width: 15em;
   float: right;
+  position: relative;
 }
 
-.choice-container {
-  margin-left: 5%;
-  right: 5%;
+.guesses-container {
   float: left; 
 }
 
@@ -114,10 +114,12 @@ li {
 
 .correct-guess {
   border-color: #8BB22D;
+  background-color: transparent;
 }
 
 .wrong-guess {
   border-color: red;
+  background-color: transparent;
 }
 
 .game-over {

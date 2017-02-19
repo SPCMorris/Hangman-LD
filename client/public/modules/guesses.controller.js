@@ -7,7 +7,7 @@ const GuessesCtrl = (function() {
 
   const disableChoiceList = () => {
     $('ul.choices').children().each((index, li)=> {
-      $(li).removeClass('correct-guess wrong-guess').addClass('game-over').attr('id', 'disabled')
+      $(li).removeClass('correct-guess wrong-guess').addClass('game-over disabled');
     });
   };
 
@@ -65,10 +65,10 @@ const GuessesCtrl = (function() {
 
     if(flag) {
       addLetterToDashes(choice, found);
-      $(event.target).removeClass('hover-control').addClass('correct-guess').attr('id', 'disabled');
+      $(event.target).removeClass('hover-control').addClass('correct-guess disabled');
 
     } else {
-      $(event.target).removeClass('hover-control').addClass('wrong-guess').attr('id', 'disabled');
+      $(event.target).removeClass('hover-control').addClass('wrong-guess disabled');
       guessCounter();
       HangmanCtrl.stringEmUp(ChosenWord['full-word']);
     }
