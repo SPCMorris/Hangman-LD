@@ -15,7 +15,7 @@ const InitCtrl = (function() {
       $game_onP.css('display', 'block');
       // Sends difficulty level to the controler to build the query for the api
       DifficultyCtrl.setDifficulty(e.target.innerHTML);
-    })
+    });
     // ChoiceCtrl builds out choice list and handles choice clicks
     // Builds List
     ChoicesCtrl.buildChoiceList();

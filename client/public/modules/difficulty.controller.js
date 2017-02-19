@@ -1,13 +1,13 @@
 const DifficultyCtrl = (function() {
+  // Chooses random integar value inclusive of min and max
   const random = (min, max) => ( Math.floor(Math.random() * (max - min + 1)) + min );
   let interval,
       startInterval,
       numOfWalkingMen = 2;
 
-  const sendToGuessesCtrl = (wordsResp) => {
-    GuessesCtrl.getWord(wordsResp);
-  };
-
+  const sendToGuessesCtrl = (wordsResp) => { GuessesCtrl.getWord(wordsResp) };
+  // Makes the ajax call to the server which makes the call to the REST api provided
+  // Also, handles loading screen animations
   const $wordApiCall = (level) => {
     $.ajax({
       url: 'https://this-is-hangman.herokuapp.com/game',
@@ -38,17 +38,14 @@ const DifficultyCtrl = (function() {
           $('div#container').show();
         }, 1500)
       },
-      success: (resp) => {
-        sendToGuessesCtrl(resp);
-      },
+      success: (resp) => { sendToGuessesCtrl(resp) },
       error: (error) => {
-        console.log(error);
         alert("Sorry something went wrong and I couldn't find you a word. Please try again");
         location.reload();
       }
     })
   };
-
+  // Takes in user difficulty selection and returns a random value based on the rules below
   const setDifficulty = (rate) => {
     let difficultyLevel;
 

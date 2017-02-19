@@ -5,7 +5,7 @@ const ChoicesCtrl = (function() {
   const buildChoiceList = () => {
     let newElement;
     for(let i = 0; i < choiceArr.length; i++) {
-      newElement = $('<li class="choice-list"></li>').text(choiceArr[i]);
+      newElement = $('<li class="choice-list hover-control"></li>').text(choiceArr[i]);
       $choiceList.append(newElement)
     }
   };

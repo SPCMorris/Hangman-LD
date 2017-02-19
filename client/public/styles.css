@@ -31,9 +31,6 @@ li {
   background-color: #F2B335;
 }
 
-li:hover {
-  background-color: transparent;
-}
 
 #container{
   margin-right: 5%;
@@ -56,6 +53,16 @@ li:hover {
   top: 42%;
   left: 48%;
   position: absolute;
+}
+
+#diasbled {
+  background-color: transparent;
+  pointer-events: none;
+  cursor: none;
+}
+
+.hover-control:hover {
+  background-color: transparent;
 }
 
 .btn {
@@ -105,17 +112,12 @@ li:hover {
   font-size: .8em;
 }
 
-.diasbled {
-  pointer-events: none;
-  cursor: none;
-}
-
 .correct-guess {
-  background-color: #8BB22D;
+  border-color: #8BB22D;
 }
 
 .wrong-guess {
-  background-color: red;
+  border-color: red;
 }
 
 .game-over {

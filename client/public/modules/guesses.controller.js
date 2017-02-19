@@ -7,17 +7,19 @@ const GuessesCtrl = (function() {
 
   const disableChoiceList = () => {
     $('ul.choices').children().each((index, li)=> {
-      $(li).removeClass('correct-guess wrong-guess').addClass('disabled game-over')
+      $(li).removeClass('correct-guess wrong-guess').addClass('game-over').attr('id', 'disabled')
     });
   };
 
   const guessCounter = () => {
     totalGuessLeft--;
-    $('span#guesses-left').text(totalGuessLeft);
     // Check if there are any more guesses left
     if(totalGuessLeft === 0) { 
+      $('div.guesses').text('Oops, you got strung up!');
       disableChoiceList();
     }
+    // If there are, display the rest of the guesses
+    $('span#guesses-left').text(totalGuessLeft);
   };
 
   const checkIfWordIsSolved = () => {
@@ -31,7 +33,7 @@ const GuessesCtrl = (function() {
         let interval = setInterval(drawingInterval, 700);
 
         function drawingInterval() {
-          let newSrc = './media/Winning/g' + intervlNum + '.png';
+          let newSrc = './media/Winning/hm' + intervlNum + '.png';
           if(intervlNum === 6) { clearInterval(interval) } 
           else { $('img.drawing').attr('src', newSrc) }
           intervlNum++;
@@ -63,10 +65,10 @@ const GuessesCtrl = (function() {
 
     if(flag) {
       addLetterToDashes(choice, found);
-      $(event.target).addClass('disabled correct-guess');
+      $(event.target).removeClass('hover-control').addClass('correct-guess').attr('id', 'disabled');
 
     } else {
-      $(event.target).addClass('disabled wrong-guess');
+      $(event.target).removeClass('hover-control').addClass('wrong-guess').attr('id', 'disabled');
       guessCounter();
       HangmanCtrl.stringEmUp(ChosenWord['full-word']);
     }

@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>This Is Hangman!</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-  <div id="loading"><img class="loading" src="./media/Loading/walking1.png" alt="Supposed to be a walking man here... Not good."></div>
-  <div id="container">
-    <h1><span id="walking-man"></span><span>THIS IS<span id="heading">...</span> HANGMAN</span></h1>
-    <p class="intro">
-      Welcome to Hangman! If you do not know what the game hangman is check it out here at <a href='https://en.wikipedia.org/wiki/Hangman_%28game%29'>Wikipedia</a>. Using the options below build out the type of game you want to play!
-    </p>
-    <p class="game-on">
-      Use the below characters choices to make your guesses. Choose wisely, you only have 6 tries. 
-    </p>
-
-    <div id="difficulty">
-      <button class="btn difficulty easy" value="easy">Easy</button>
-      <button class="btn difficulty medium" value="medium">Medium</button>
-      <button class="btn difficulty hard" value="hard">Hard</button>
-      <button class="btn difficulty insane" value="insane">INSANE</button>
+  <head>
+    <title>This Is Hangman!</title>
+    <!-- Normalize for style stability across browsers -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <!-- Hangman Styles -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <div id="loading"><img class="loading" src="./media/Loading/walking1.png" alt="Supposed to be a walking man here... Not good."></div>
+    <div id="container">
+      <h1><span id="walking-man"></span><span>THIS IS<span id="heading">...</span> HANGMAN</span></h1>
+      <p class="intro">
+        Welcome to Hangman! If you do not know what the game hangman is check it out here at <a href='https://en.wikipedia.org/wiki/Hangman_%28game%29'>Wikipedia</a>. Using the options below build out the type of game you want to play!
+      </p>
+      <p class="game-on">
+        Use the below characters choices to make your guesses. Choose wisely, you only have 6 tries. 
+      </p>
+      <!-- Difficulty button group -->
+      <div id="difficulty">
+        <button class="btn difficulty easy" value="easy">Easy</button>
+        <button class="btn difficulty medium" value="medium">Medium</button>
+        <button class="btn difficulty hard" value="hard">Hard</button>
+        <button class="btn difficulty insane" value="insane">INSANE</button>
+      </div>
+      <!-- Game board including choice list, restart button, guesses element and hangman diagram -->
+      <div id="gameBoard">
+          <div class="choice-container">
+            <ul class="choices"></ul>
+            <button class="btn restart">New Game</button> 
+          </div>
+          <div class="guess-container">
+            <div class="dashes"><span id="dashes"></span></div>
+            <div class="guesses">You have <span id="guesses-left">6</span> guesses left</div>
+            <div></div>
+            <img class="drawing" src="./media/Losing/Drawing10.png" width="800" height="281">
+          </div>
+      </div>
+    <!-- Closing container div -->
     </div>
-
-    <div id="gameBoard">
-        <div class="choice-container">
-          <ul class="choices"></ul>
-          <button class="btn restart">New Game</button> 
-        </div>
-        <div class="guess-container">
-          <div class="dashes"><span id="dashes"></span></div>
-          <div class="guesses">You have <span id="guesses-left">6</span> guesses left</div>
-          <div></div>
-          <img class="drawing" src="./media/Losing/Drawing10.png" width="800" height="281">
-        </div>
-    </div>
-
-  </div>
-  <!-- jQuery CND -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <!-- Modules -->
-  <script type="text/javascript" src="./modules/choices.controller.js"></script>
-  <script type="text/javascript" src="./modules/guesses.controller.js"></script>
-  <script type="text/javascript" src="./modules/difficulty.controller.js"></script>
-  <script type="text/javascript" src="./modules/hangman.controller.js"></script>
-  <!-- Initiate Game -->
-  <script type="text/javascript" src="./modules/init.controller.js"></script>
-</body>
+    <!-- jQuery CND -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Modules -->
+    <script type="text/javascript" src="./modules/choices.controller.js"></script>
+    <script type="text/javascript" src="./modules/guesses.controller.js"></script>
+    <script type="text/javascript" src="./modules/difficulty.controller.js"></script>
+    <script type="text/javascript" src="./modules/hangman.controller.js"></script>
+    <!-- Initiate Game -->
+    <script type="text/javascript" src="./modules/init.controller.js"></script>
+  </body>
 </html>
