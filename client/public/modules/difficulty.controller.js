@@ -2,6 +2,7 @@ const DifficultyCtrl = (function() {
   // Chooses random integar value inclusive of min and max
   const random = (min, max) => ( Math.floor(Math.random() * (max - min + 1)) + min );
   let interval,
+      userInput,
       startInterval,
       numOfWalkingMen = 2;
 
@@ -48,6 +49,11 @@ const DifficultyCtrl = (function() {
       }
     })
   };
+  // Simply gets the user input from login
+  const getUserInput = (input) => {
+    userInput = input;
+    console.log(userInput);
+  };
   // Takes in user difficulty selection and returns a random value based on the rules below
   const setDifficulty = (rate) => {
     let difficultyLevel;
@@ -69,6 +75,7 @@ const DifficultyCtrl = (function() {
   };
 
   return {
+    getUserInput,
     setDifficulty
   };
 

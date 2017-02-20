@@ -8,6 +8,10 @@ a {
   color: #F2B335;
 }
 
+::-webkit-input-placeholder {
+   color: white;
+}
+
 button#btn {
   border-radius: .5em;
   color: white;
@@ -91,6 +95,19 @@ li#game-over {
   float: left;
 }
 
+#btn.login, .guest, .submit {
+  background-color: #00bfa5;
+  margin: .5%;
+}
+
+#login {
+  display: none;
+}
+
+#login-fields {
+  display: none;
+}
+
 .game-on {
   display: none;
 }
@@ -120,3 +137,5 @@ li#game-over {
   font-size: .6em;
   margin-top: .2em;
 }
+
+

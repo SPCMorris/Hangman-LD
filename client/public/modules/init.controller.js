@@ -1,19 +1,46 @@
 const InitCtrl = (function() {
   $(document).ready( () => {
-    const $btn_difficulty = $('button.difficulty'),
-          $game_board = $('div#gameBoard'),
-          $game_onP = $('p.game-on'),
-          $introP = $('p.intro');
-    // Initiates game
-    $btn_difficulty.click( (e) => {
+    const $btn_login = $('button.login'),
+          userInfo = {};
+    let difficultySetting,
+        loginClickCount = 0;
+    // Sets difficulty rate, shows login
+    $('button.difficulty').click( (e) => {
+      e.preventDefault();
+      difficultySetting = e.target.innerHTML;
+      $('div#difficulty').hide();
+      $('p.intro').hide();
+      $('#login').show();
+    });
+    // Initiates game without login
+    $('button.guest').click( (e) => {
       e.preventDefault();
       // Basic CSS changes for display
-      $('div#difficulty').css('display', 'none');
-      $game_board.css('display', 'block');
-      $introP.css('display', 'none');
-      $game_onP.css('display', 'block');
+      $('div#login').hide();
+      $('div#gameBoard').show();
+      $('p.game-on').show()
       // Sends difficulty level to the controler to build the query for the api
-      DifficultyCtrl.setDifficulty(e.target.innerHTML);
+      DifficultyCtrl.setDifficulty(difficultySetting);
+    });
+    // Initiates game with login
+    $btn_login.click( (e) => {
+      e.preventDefault();
+      loginClickCount++;
+      // Basic CSS changes for display
+      if(loginClickCount === 2) {
+        $('div#login').hide(); 
+        $('div#gameBoard').show();
+        $('p.game-on').show();
+        // Get user input
+        userInfo['nickname'] = $('#nickname').val();
+        userInfo['secret'] =$('#secret').val();
+        // Sends difficulty level and user input to the controler to build the query for the api
+        DifficultyCtrl.getUserInput(userInfo);
+        DifficultyCtrl.setDifficulty(difficultySetting);
+      } else {
+        $('#login-fields').show();
+        $btn_login.text('Submit');
+      }
     });
     // ChoiceCtrl builds out choice list and handles choice clicks
     // Builds List
