@@ -22,7 +22,6 @@ const HangmanCtrl = (function() {
         $('div.dashes').replaceWith('<span>' + word + '</span>');
         // Runs lost animation
         startInterval(hangingPicIndex);
-
       }
     } 
   };

@@ -15,18 +15,30 @@ const ButtonCtrl = (function() {
   };
   // Give a random letter that hasnt been found yet for hints
   const giveRandomLetter = () => {
-    let $div_dashes = $('div.dashes'),
-        numOfChildren,
+    let $span_dashes = $('span#dashes')["0"].childNodes,
+        numOfChildren = $span_dashes.length,
         randomLetter,
         randomIndex;
 
-        console.log($div_dashes)
+    for(let i = 0; i < numOfChildren - 1; i++) {
+      if($span_dashes[i].innerHTML) {
+        randomIndex = i;
+        randomLetter = ChosenWord[i];
+        i = numOfChildren;
+      }
+    }
+    $($span_dashes).eq(randomIndex).replaceWith(randomLetter);
+    alert( "'" + randomLetter + "' was your last hint. Good luck, you may need it...");
   };
   // This function gets and stores the chosen word for hints and guesses
   const getWordFromDifficultyCtrl = (word) => {
     ChosenWord = word;
     vowelCounter();
   };
+  /////////////////////////////////////////////////////////////////////////////////////
+  //---------------------------------Click Handlers --------------------------------//
+  ///////////////////////////////////////////////////////////////////////////////////
+
   // Easy button. Just reloads the game from the start.
   $('button.restart').click( () => {
     location.reload();

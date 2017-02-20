@@ -80,7 +80,7 @@ li#game-over {
 }
 
 #btn.restart, .hint, .guess {
-  background-color: #009688;
+  background-color: #00bfa5;
 }
 
 #gameBoard {
@@ -110,6 +110,10 @@ li#game-over {
   float: left;
   position: relative;
   text-align: center;
+}
+
+.choice-list {
+  padding: .1em;
 }
 
 .guesses {

@@ -36,16 +36,16 @@ const GuessesCtrl = (function() {
     if(foundLetters === NumOfDashes) {
       // Disables choice list
       disableChoiceList();
-      // Appends winning message. 
+      // Appends winning message 
       $('span#heading').replaceWith(' WINNING AT');
       $('div.guesses').text('Winner, Winner, no Hangman for you!');
       // Winning animation
       const startInterval = (intervlNum) => {
-        let interval = setInterval(drawingInterval, 700);
+        let interval = setInterval(drawingInterval, 325);
 
         function drawingInterval() {
           let newSrc = './media/Winning/hm' + intervlNum + '.png';
-          if(intervlNum === 21) { clearInterval(interval) } 
+          if(intervlNum === 22) { clearInterval(interval) } 
           else { $('img.drawing').attr('src', newSrc) }
           intervlNum++;
         };
