@@ -1,5 +1,5 @@
 const ButtonCtrl = (function() {
-  const random = (min, max) => ( Math.floor(Math.random() * (max - min + 1)) + min );
+  const $btn_hint = $('button.hint');
   let vowelCount = 0,
       hintCount = 0,
       randomLetter,
@@ -13,22 +13,33 @@ const ButtonCtrl = (function() {
       if(vowels.hasOwnProperty(ChosenWord[i])) { vowelCount++ }
     }
   };
-  // Give a random letter that hasnt been found yet for hints
+  // Give a letter that hasnt been found yet for hints
   const giveRandomLetter = () => {
     let $span_dashes = $('span#dashes')["0"].childNodes,
         numOfChildren = $span_dashes.length,
-        randomLetter,
-        randomIndex;
+        hintLetter,
+        hintIndex;
 
     for(let i = 0; i < numOfChildren - 1; i++) {
       if($span_dashes[i].innerHTML) {
-        randomIndex = i;
-        randomLetter = ChosenWord[i];
+        hintIndex = i;
+        hintLetter = ChosenWord[i];
         i = numOfChildren;
       }
     }
-    $($span_dashes).eq(randomIndex).replaceWith(randomLetter);
-    alert( "'" + randomLetter + "' was your last hint. Good luck, you may need it...");
+    $($span_dashes).eq(hintIndex).replaceWith(hintLetter);
+    alert( "'" + hintLetter + "' was your last hint. Good luck, you may need it...");
+  };
+  // Allow the user to gues the full word and count that against their guesses if wrong
+  const userGuessedWord = (word) => {
+    let input = this.prompt('Very Brave! What do you think the word is?', 'Enter the word here...');
+    if(input.toLowerCase() === ChosenWord) {
+      $('span#dashes').replaceWith(ChosenWord);
+      GuessesCtrl.checkIfWordIsSolved(true);
+    } else {
+      GuessesCtrl.guessCounter();
+      alert("Sorry, that is not the secret word. I would tell you what it is but... it's a secret")
+    }
   };
   // This function gets and stores the chosen word for hints and guesses
   const getWordFromDifficultyCtrl = (word) => {
@@ -45,18 +56,20 @@ const ButtonCtrl = (function() {
   })
 
   // Hint button. There are two different hints: 1. vowel count in word, 2: random letter reveal
-  $('button.hint').click( () => {
+  $btn_hint.click( () => {
     // First thing to do is increment hint to keep track of how many hints are used
     hintCount++;
 
     if(hintCount === 1) { alert("There are " + vowelCount + " vowels in this word. And don't include 'y' in that!") }
-    else if(hintCount === 2) { giveRandomLetter() }
-    else { alert("Sorry. You have used all your hints. Wouldn't be sporting to give you more") }
+    else if(hintCount === 2) { 
+      giveRandomLetter();
+      $btn_hint.hide();
+    }
   })
 
   // Guess
   $('button.guess').click( () => {
-    console.log('guess')
+    userGuessedWord();
   })
 
   return {

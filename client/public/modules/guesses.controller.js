@@ -32,8 +32,8 @@ const GuessesCtrl = (function() {
     $('span#guesses-left').text(totalGuessLeft);
   };
   // This function checks if you won the game and if so trigges the winning animations
-  const checkIfWordIsSolved = () => {
-    if(foundLetters === NumOfDashes) {
+  const checkIfWordIsSolved = (isSolved) => {
+    if(foundLetters === NumOfDashes || isSolved) {
       // Disables choice list
       disableChoiceList();
       // Appends winning message 
@@ -110,6 +110,8 @@ const GuessesCtrl = (function() {
   return {
     getWord,
     guessCounter,
+    guessCounter,
+    checkIfWordIsSolved,
     getChoiceFromChoicesCtrl
   };
 
