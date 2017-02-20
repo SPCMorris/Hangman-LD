@@ -10,13 +10,17 @@ const DifficultyCtrl = (function() {
     GuessesCtrl.getWord(wordsResp);
     ButtonCtrl.getWordFromDifficultyCtrl(wordsResp); 
   };
+  // Simply gets the user input from login
+  const getUserInput = (input) => {
+    userInput = input;
+  };
   // Makes the ajax call to the server which makes the call to the REST api provided
   // Also, handles loading screen animations
   const $wordApiCall = (level) => {
     $.ajax({
       url: 'https://this-is-hangman.herokuapp.com/game',
       type: 'GET',
-      data: { level },
+      data: {level},
       async: true,
       beforeSend: () => {
         $('div.container').hide();
@@ -44,15 +48,11 @@ const DifficultyCtrl = (function() {
       },
       success: (resp) => { sendToGuessesCtrl(resp) },
       error: (error) => {
-        prompt("Sorry something went wrong and I couldn't find you a word. Please try again");
+        console.log(error);
+        alert("Sorry something went wrong and I couldn't find you a word. Please try again");
         location.reload();
       }
     })
-  };
-  // Simply gets the user input from login
-  const getUserInput = (input) => {
-    userInput = input;
-    console.log(userInput);
   };
   // Takes in user difficulty selection and returns a random value based on the rules below
   const setDifficulty = (rate) => {
