@@ -7,14 +7,15 @@
 * [Javascript](https://www.javascript.com/)
 * [HTML5](https://www.w3.org/TR/html5/)
 * [CSS3](https://www.w3schools.com/css/css3_intro.asp/)
+* [Materialize](http://www.materializecss.com/)
 * [Node](https://nodejs.org/en/)
 * [Express](http://expressjs.com/)
 * [MySQL](https://www.mysql.com/)
 * [Knex](http://knexjs.org/)
-* [Materialize](http://www.materializecss.com/)
 
 ##### These tools were also used but aren't really needed for the app
 * [Chrome Dev Tools](https://developer.chrome.com/devtools/)
+* [SQL Designer](https://ondras.zarovi.cz/sql/demo/)
 * [Sketch](https://sketch.io/)
 
 #### Want to contribute or just play around with Hangman-LD?

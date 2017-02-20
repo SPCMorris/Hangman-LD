@@ -27,8 +27,7 @@ const ButtonCtrl = (function() {
         i = numOfChildren;
       }
     }
-    $($span_dashes).eq(hintIndex).replaceWith(hintLetter);
-    alert( "'" + hintLetter + "' was your last hint. Good luck, you may need it...");
+    confirm( "'" + hintLetter + "' was your last hint, so click it and get on with solving this word already!");
   };
   // Allow the user to gues the full word and count that against their guesses if wrong
   const userGuessedWord = (word) => {
@@ -60,13 +59,12 @@ const ButtonCtrl = (function() {
     // First thing to do is increment hint to keep track of how many hints are used
     hintCount++;
 
-    if(hintCount === 1) { alert("There are " + vowelCount + " vowels in this word. And don't include 'y' in that!") }
+    if(hintCount === 1) { alert("There are " + vowelCount + " vowel(s) in this word. And don't include 'y' in that!") }
     else if(hintCount === 2) { 
       giveRandomLetter();
       $btn_hint.hide();
     }
   })
-
   // Guess
   $('button.guess').click( () => {
     userGuessedWord();

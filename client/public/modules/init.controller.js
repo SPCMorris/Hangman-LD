@@ -18,11 +18,5 @@ const InitCtrl = (function() {
     // ChoiceCtrl builds out choice list and handles choice clicks
     // Builds List
     ChoicesCtrl.buildChoiceList();
-    // Click handler for list choices
-    const $choice_list = $('ul.choices');
-    $choice_list.click( (e) => {
-      let currentTarget = $(e.target).hasClass('disabled');
-      if(!currentTarget) { ChoicesCtrl.getChoice(e.target.innerHTML, e) }
-    });
   });
 })();
