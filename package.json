@@ -22,10 +22,9 @@
     "url": "https://github.com/SPCMorris/Hangman-LD/issues"
   },
   "homepage": "https://github.com/SPCMorris/Hangman-LD#readme",
-  "devDependencies": {
-
-  },
+  "devDependencies": {},
   "dependencies": {
+    "axios": "^0.15.3",
     "body-parser": "^1.16.0",
     "cors": "^2.8.1",
     "dotenv": "^4.0.0",

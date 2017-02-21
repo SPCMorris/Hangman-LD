@@ -8,7 +8,6 @@ const UserCtrl = (function() {
   // Makes the ajax call to the server which makes the call to the REST api provided
   // Also, handles loading screen animations
   const userApiCall = (input) => {
-    console.log(input)
     axios.get('user?' + 'nickname=' + input.nickname + '&secret=' + input.secret)
     .then( (resp) => {
       userObj["id"] = resp.data.id;
@@ -16,7 +15,6 @@ const UserCtrl = (function() {
       userObj["score"] = resp.data.score;
       $('#login-profile').show();
       $('#user-score').show();
-      console.log(userObj)
       $('#user-score').append(resp.data.score);
     })
     .catch( (err) => {
