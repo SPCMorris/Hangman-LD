@@ -13,7 +13,7 @@ const DifficultyCtrl = (function() {
   // Also, handles loading screen animations
   const $wordApiCall = (level) => {
     $.ajax({
-      url: 'http://localhost:9000/game',
+      url: window.location.href + 'game',
       type: 'GET',
       data: {level},
       async: true,
