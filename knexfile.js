@@ -2,7 +2,6 @@ const path = require('path');
 require('dotenv').config();
 
 module.exports = {
-
   development: {
     client: 'mysql',
     connection: {
@@ -11,6 +10,7 @@ module.exports = {
       password: process.env.db_password,
       database: 'hangman',
       charset: 'utf8'
-    }
+    }, 
+    ssl: true
   }
 };
