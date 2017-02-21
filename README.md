@@ -90,7 +90,7 @@ I used Javascript/HTML5/CSS with the jQuery framework heavily for this project. 
 
 For UI design I wanted a playful app that would invoke nostaglia of the tradition hand drawn game of Hangman. To do that I used Sketch to draw out the animations frame by frame and then programmatically flipped the images. The color pallete was chosen so that the user would focus on the areas that they needed to i.e.: the animations, the choices, and the buttons. 
 
-I followed the MVC pattern and Revealing Module Patterns. I felt that these patterns suited functionality of the app because of how compartmentalized I made it. UI design is not my strongest suit so I used some Materialize to help with responsivness and had to use a lot of 'id' attributes to override what I needed to. 
+I followed the MVC pattern and Revealing Module Patterns. I felt that these patterns suited functionality of the app because of how compartmentalized I made it. UI design is not my strongest suit so I used some Materialize to help with responsiveness and had to use a lot of 'id' attributes to override what I needed to. 
 
 #### Server-Side Design & Tools
 
