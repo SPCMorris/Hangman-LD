@@ -1,10 +1,5 @@
 const UserCtrl = (function() {
   const userObj = {};
-  // Simply gets the user input from login
-  const getUserInput = (input, difficulty) => {
-    userApiCall(input);
-    userObj['level'] = difficulty;
-  };
   // Makes the ajax call to the server which makes the call to the REST api provided
   // Also, handles loading screen animations
   const userApiCall = (input) => {
@@ -24,7 +19,12 @@ const UserCtrl = (function() {
       location.reload();
     })
   };
-
+  // Simply gets the user input from login
+  const getUserInput = (input, difficulty) => {
+    userApiCall(input);
+    userObj['level'] = difficulty;
+  };
+  // Points for winning
   const scoreIndex = (level) => {
     switch(level) {
       case 'Easy':
