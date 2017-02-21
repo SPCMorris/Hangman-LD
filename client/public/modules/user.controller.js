@@ -43,6 +43,7 @@ const UserCtrl = (function() {
 
   const updateUserScore = () => {
     scoreIndex(userObj.level);
+    $('#user-score').text(userObj.score);
     axios.put('user?' + 'id=' + userObj.id + '&score=' + userObj.score)
     .then( (resp) => {
       console.log(resp);
