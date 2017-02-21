@@ -22,13 +22,9 @@ Users.findUser = (request) => {
     secret: request.secret
   })
   .limit(1)
-  .then( (rows) => {
-    console.log(rows);
+  .then((rows) => {
     return rows[0];
   })
-  .catch( (err) => {
-    return err;
-  });
 };
 
 // Update
@@ -42,7 +38,7 @@ Users.findUserById = (attr) => {
     })
     .then( (result) => {
       return result;
-  });
+    })
 }
 
 // Delete

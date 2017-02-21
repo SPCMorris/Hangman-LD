@@ -2,7 +2,6 @@ const UserCtrl = (function() {
   const userObj = {};
   // Simply gets the user input from login
   const getUserInput = (input, difficulty) => {
-    console.log(difficulty);
     userApiCall(input);
     userObj['level'] = difficulty;
   };
@@ -12,18 +11,17 @@ const UserCtrl = (function() {
     console.log(input)
     axios.get('user?' + 'nickname=' + input.nickname + '&secret=' + input.secret)
     .then( (resp) => {
-      if(!resp) {
-        alert('Sorry a user with that suername already exists. Please try again!');
-        location.reload();
-      }
-      console.log(resp)
       userObj["id"] = resp.data.id;
       userObj["nickname"] = resp.data.nickname;
       userObj["score"] = resp.data.score;
-      console.log(userObj)
+      $('#login-profile').show();
+      $('#user-score').show();
+      $('#user-score').append(resp.data.score);
     })
     .catch( (err) => {
       console.log(err);
+      alert('Sorry a problem occured. Please try again!');
+      location.reload();
     })
   };
 

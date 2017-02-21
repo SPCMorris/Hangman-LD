@@ -108,6 +108,15 @@ li#game-over {
   display: none;
 }
 
+#login-profile, #user-score {
+  display: none;
+  float: right;
+}
+
+#user-score {
+  font-size: .3em;
+}
+
 .game-on {
   display: none;
 }
