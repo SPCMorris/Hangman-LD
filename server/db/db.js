@@ -47,13 +47,8 @@ const build_Users_Table = knex.build_Users_Table = () => {
       } else {
         knex.schema.createTable('Users', (table) => {
           table.increments('id').primary();
-          table.string('id_Games').references('id').inTable('Games');
-          table.string('id_Chats').references('id').inTable('Chats');
           table.string('nickname', 15);
           table.string('secret', 20);
-          table.integer('easy');
-          table.integer('medium');
-          table.integer('hard');
         })
         .then( (table) => {
           console.log('Users table is now live!', table);

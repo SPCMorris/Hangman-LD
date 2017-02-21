@@ -27,7 +27,7 @@ const ButtonCtrl = (function() {
         i = numOfChildren;
       }
     }
-    confirm( "'" + hintLetter + "' was your last hint, so click it and get on with solving this word already!");
+    confirm(" There is an ' " + hintLetter + " ' in the word. This is your last hint, so click it and get on with solving this word already!");
   };
   // Allow the user to gues the full word and count that against their guesses if wrong
   const userGuessedWord = (word) => {

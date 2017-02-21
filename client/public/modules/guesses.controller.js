@@ -2,13 +2,12 @@ const GuessesCtrl = (function() {
   const ChosenWord = {};
   let NumOfDashes,
       $span_dashes,
-      foundLetters = 0;
+      foundLetters = 0,
       totalGuessLeft = 6;
 
   // If you win or lose the game this disables the list
   const disableChoiceList = () => {
     $('ul.choices').children().each((index, li)=> {
-      console.log(li);
       let char = $(li);
 
       char.removeAttr('id', 'correct-guess')

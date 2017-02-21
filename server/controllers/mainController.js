@@ -1,8 +1,11 @@
 const GameCtrl = require('./gameController.js');
+const UserCtrl = require('./userController.js');
+
 
 // Aggregates all controllers to export as one to reduce redundancy and help with debugging
 const Routes = {
-  GameCtrl
+  GameCtrl,
+  UserCtrl
 };
 
 module.exports = Routes;

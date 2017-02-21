@@ -4,6 +4,8 @@
   "description": "A React app using Node/Express and MySQL/knex on the backend. A simple game of hangman.",
   "main": "server.js",
   "scripts": {
+    "webpack-watch": "./node_modules/webpack/bin/webpack.js -w",
+    "webpack": "./node_modules/webpack/bin/webpack.js",
     "start": "node server/server.js",
     "express-server": "nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +16,6 @@
   },
   "keywords": [
     "game",
-    "react",
     "hangman"
   ],
   "author": "Ryan Morris",
@@ -23,7 +24,9 @@
     "url": "https://github.com/SPCMorris/Hangman-LD/issues"
   },
   "homepage": "https://github.com/SPCMorris/Hangman-LD#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+  },
   "dependencies": {
     "body-parser": "^1.16.0",
     "cors": "^2.8.1",
@@ -35,8 +38,8 @@
     "knex": "^0.12.6",
     "morgan": "^1.7.0",
     "mysql": "^2.12.0",
-    "nodemon": "^1.11.0",
     "path": "^0.12.7",
+    "pump": "^1.0.2",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
   }

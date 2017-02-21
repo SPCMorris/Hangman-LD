@@ -31,3 +31,4 @@ const HangmanCtrl = (function() {
   };
 
 })();
+

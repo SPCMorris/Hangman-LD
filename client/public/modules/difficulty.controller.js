@@ -2,17 +2,12 @@ const DifficultyCtrl = (function() {
   // Chooses random integar value inclusive of min and max
   const random = (min, max) => ( Math.floor(Math.random() * (max - min + 1)) + min );
   let interval,
-      userInput,
       startInterval,
       numOfWalkingMen = 2;
 
   const sendToGuessesCtrl = (wordsResp) => { 
     GuessesCtrl.getWord(wordsResp);
     ButtonCtrl.getWordFromDifficultyCtrl(wordsResp); 
-  };
-  // Simply gets the user input from login
-  const getUserInput = (input) => {
-    userInput = input;
   };
   // Makes the ajax call to the server which makes the call to the REST api provided
   // Also, handles loading screen animations
@@ -75,7 +70,6 @@ const DifficultyCtrl = (function() {
   };
 
   return {
-    getUserInput,
     setDifficulty
   };
 
