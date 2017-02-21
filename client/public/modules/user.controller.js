@@ -16,6 +16,7 @@ const UserCtrl = (function() {
       userObj["score"] = resp.data.score;
       $('#login-profile').show();
       $('#user-score').show();
+      console.log(userObj)
       $('#user-score').append(resp.data.score);
     })
     .catch( (err) => {
