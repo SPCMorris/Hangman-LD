@@ -1,6 +1,6 @@
 const config = require('../../knexfile.js');
-const env = 'production' || 'development';
-const knex = require('knex')(config[env]);
+const env = process.env.NODE_ENV || 'development';
+const knex = require('knex')(config);
 
 const build_Games_Table = knex.build_Games_Table = () => {
   return knex.schema.hasTable('Games')
