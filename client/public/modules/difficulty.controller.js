@@ -13,7 +13,7 @@ const DifficultyCtrl = (function() {
   // Also, handles loading screen animations
   const $wordApiCall = (level) => {
     $.ajax({
-      url: 'http://this-is-hangman.herokuapp.com/game',
+      url: 'http://localhost:9000/game',
       type: 'GET',
       data: {level},
       async: true,
