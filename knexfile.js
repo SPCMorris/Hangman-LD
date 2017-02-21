@@ -3,7 +3,7 @@ require('dotenv').config();
 
 module.exports = {
 
-  db: {
+  development: {
     client: 'mysql',
     connection: {
       host: '50.62.209.194',
