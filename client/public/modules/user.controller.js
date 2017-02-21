@@ -10,6 +10,7 @@ const UserCtrl = (function() {
   const userApiCall = (input) => {
     axios.get('user?' + 'nickname=' + input.nickname + '&secret=' + input.secret)
     .then( (resp) => {
+      console.log(resp)
       userObj["id"] = resp.data.id;
       userObj["nickname"] = resp.data.nickname;
       userObj["score"] = resp.data.score;
