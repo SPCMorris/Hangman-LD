@@ -30,7 +30,29 @@
 7. Code! Play around! Be free!
 8. Commit changes and make a pull request
 
-#### Client-Side Application Structure
+### Features
+
+1. Difficulty: Allows user to choose their difficulty
+2. Login: Allows users to create a login to store their score
+3. Hints: Gives users two hints. 1: total vowel count, 2: random unrevealed letter
+4. Guess: Allows users to try and guess the whole word
+5. Diagram: An animated diagram for winning and losing. Hangman style
+6. Choice List: A list of letters that tracks wrong and correct guesses
+7. Dashes/Word Display: A display of dashes that will gradually reveal the word on correct guesses
+8. Responsive: Tested on a variety of screen sizes and devices. Works and looks good doing it
+
+### Playing the Game
+
+Playing the game is as simple as the classic. Once you start running the game on your local machine simply navigate to localhost:9000, watch those power levels, and follow the onscreen instructions. 
+
+### Feature Wish List
+
+1. Challenge Mode: Players can challenge another player to a round
+2. Multi-Language: I wanna add the support for Tagalog and Spanish. At least to start off.
+3. Rewards for High Scores: Things like badges and special colors or icons. 
+4. Fill in the blank _______, then submit a pull reques. 
+
+### Client-Side Application Structure
 
     client
     ├── public
@@ -74,13 +96,8 @@ I followed the MVC pattern and Revealing Module Patterns. I felt that these patt
 
 For the server, I also focused on a modular design. I have big plans for Hangman so I wanted to make sure that the backend was ready to be built up fast and easy. I used Node/Express/MySQL/knex for my primary backend tools with a variety of other frameworks. One issue I had here that ate up alot of my time was trying to get knex to work with Heroku. I had the app deployed up until I added the login feature for scoring. After that, even after I revereted my code, Heroku wouldn't launch. 
 
-### Feature Wish List
+### The Developer
 
-1. Challenge Mode: Players can challenge another player to a round
-2. Multi-Language: I wanna add the support for Tagalog and Spanish. At least to start off.
-3. Rewards for High Scores: Things like badges and special colors or icons. 
-4. Fill in the blank _______, then submit a pull reques. 
-
-### The Developers
-
-* [Ryan Morris](https://github.com/SPCMorris)
+* Ryan Morris
+  * [LinkedIn](https://www.linkedin.com/in/spcryanmorris/)
+  * [Facebook](https://www.facebook.com/lasthurray/)
