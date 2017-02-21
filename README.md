@@ -14,6 +14,7 @@
 * [Knex](http://knexjs.org/)
 
 ##### These tools were also used but aren't really needed for the app
+* [Heroku](https://www.heroku.com/)
 * [Chrome Dev Tools](https://developer.chrome.com/devtools/)
 * [SQL Designer](https://ondras.zarovi.cz/sql/demo/)
 * [Sketch](https://sketch.io/)
@@ -28,6 +29,50 @@
 6. Open your browser and navigate to localhost:9000
 7. Code! Play around! Be free!
 8. Commit changes and make a pull request
+
+#### Client-Side Application Structure
+
+    client
+    ├── public
+    │   ├── media
+    │   └── modules
+    │       ├── button.controller.js
+    │       ├── choices.controller.js
+    │       ├── difficulty.controller.js
+    │       ├── guesses.controller.js
+    │       ├── hangman.controller.js
+    │       ├── init.controller.js
+    │       └── user.controller.js
+    ├──styles.css
+    └──index.html
+
+### Back-End Application Structure
+
+    server
+    ├── controllers
+    │   ├── gameController.js
+    │   ├── mainController.js
+    │   └── userController.js
+    ├── db
+    │   └── db.js
+    ├── helpers
+    ├── models
+    │   └── userModel.js 
+    ├── routes
+    │   └── routes.js
+    └── server.js
+
+### Client-Side Design & Tools
+
+I used Javascrip/HTML5/CSS with the jQuery framework heavily for this project. I chose to use these tools because they are critical tools for web development and that is the type of project I worked on. jQuery was essential for the interactivity of the app to function as well as it did without verbose Javascript code. For api calls, I used two types of frameworks, AJAX (jQuery) and Axios. I switched to axios to try adn alleviate issues I was having with Heroku. But I was not able to do so.
+
+For UI design I wanted a playful app that would invoke nostaglia of the tradition hand drawn game of Hangman. To do that I used Sketch to draw out the animations frame by frame and then programmatically flipped the images. the color pallete was chosen so that the user would focus on the areas that they needed to i.e.: the animations, the choices, and the buttons. 
+
+I followed the MVC pattern and Revealing Module Patterns. I felt that these patterns suited functionality of the app was because of how compartmentalized I made it. UI design is not my strongest suit so I used some Materialze to help with responsivness and had to use a lot of 'id' attributes to override what I needed to. 
+
+### Server-Side Design & Tools
+
+For the server, I also focused on a modular design. I have big plans for Hangman so I wanted to make sure that the backend was ready to be built up fast and easy. I used Node/Express/MySQL/knex for my primary backend tools with a variety of other frameworks. One issue I had here that ate up alot of my time was trying to get knex to work with Heroku. I had the app deployed up until I added the login feature for scoring. After that, even after I revereted my code, Heroku wouldn't launch. 
 
 ### Feature Wish List
 
