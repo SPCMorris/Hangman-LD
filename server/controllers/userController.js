@@ -39,16 +39,16 @@ const GET = (req, res) => {
                 res.send(resp);
               })
               .catch( (err) => {
-                res.end('There was an error with the User Controller GET.', err);
+                res.end('There was an error with the User Controller GET IN FIND USER.', err);
               })
           })
           .catch( (err) => {
-            res.end('There was an error with the User Controller GET.', err);
+            res.end('There was an error with the User Controller GET IN CREATE USER.', err);
           })
       }
     })
     .catch((err) => {
-      res.end('There was an error with the User Controller GET.', err);
+      res.end('There was an error with the User Controller GET IN FIND USER.', err);
     });
 };
 
