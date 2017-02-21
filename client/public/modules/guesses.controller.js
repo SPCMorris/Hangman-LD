@@ -101,7 +101,6 @@ const GuessesCtrl = (function() {
       ChosenWord[i] = word[i];
     }
     ChosenWord["full-word"] = word;
-    console.log(ChosenWord)
     displayDashes(word.length); 
   };
 
