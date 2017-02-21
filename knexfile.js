@@ -9,8 +9,19 @@ module.exports = {
       user: process.env.db_username,
       password: process.env.db_password,
       database: 'hangman',
+      charset: 'utf8'
+    }
+  },
+
+  production: {
+    client: 'mysql',
+    connection: {
+      host: '50.62.209.194',
+      user: process.env.db_username,
+      password: process.env.db_password,
+      database: 'hangman',
       charset: 'utf8',
-      ssl:true
+      ssl: true
     }
   }
 };
