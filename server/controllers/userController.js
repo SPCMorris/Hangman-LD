@@ -39,7 +39,7 @@ const GET = (req, res) => {
                 res.send(resp);
               })
               .catch( (err) => {
-                res.end('There was an error with the User Controller GET IN FIND USER.', err);
+                res.end('There was an error with the User Controller GET IN FIND USER 1.', err);
               })
           })
           .catch( (err) => {
@@ -48,7 +48,7 @@ const GET = (req, res) => {
       }
     })
     .catch((err) => {
-      res.end('There was an error with the User Controller GET IN FIND USER.', err);
+      res.end('There was an error with the User Controller GET IN FIND USER 2.', err);
     });
 };
 
