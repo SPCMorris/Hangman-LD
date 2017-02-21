@@ -49,6 +49,7 @@ const build_Users_Table = knex.build_Users_Table = () => {
           table.increments('id').primary();
           table.string('nickname', 15);
           table.string('secret', 20);
+          table.integer('score').defaultTo(0);
         })
         .then( (table) => {
           console.log('Users table is now live!', table);

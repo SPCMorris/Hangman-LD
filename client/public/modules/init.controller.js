@@ -35,7 +35,7 @@ const InitCtrl = (function() {
         userInfo['nickname'] = $('#nickname').val();
         userInfo['secret'] =$('#secret').val();
         // Sends difficulty level and user input to the controllers to build the query for the api and save user info
-        UserCtrl.getUserInput(userInfo);
+        UserCtrl.getUserInput(userInfo, difficultySetting);
         DifficultyCtrl.setDifficulty(difficultySetting);
       } else {
         $('#login-fields').show();

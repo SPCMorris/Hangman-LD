@@ -35,6 +35,7 @@ const GuessesCtrl = (function() {
     if(foundLetters === NumOfDashes || isSolved) {
       // Disables choice list
       disableChoiceList();
+      UserCtrl.updateUserScore();
       // Appends winning message 
       $('span#heading').replaceWith(' WINNING AT');
       $('div.guesses').text('Winner, Winner, no Hangman for you!');
